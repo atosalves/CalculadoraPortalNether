@@ -27,19 +27,20 @@ fun MinecraftTextField(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    keyboardType: KeyboardType = KeyboardType.Number  // default: número
 ) {
     Box(
         modifier = modifier
-            .border(2.dp, Color(0xFF3A3A3A)) // borda externa escura
+            .border(2.dp, Color(0xFF3A3A3A))
             .padding(2.dp)
-            .background(Color(0xFF7C7C7C)) // cinza médio
+            .background(Color(0xFF7C7C7C))
             .padding(2.dp),
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
-                .background(Color(0xFF9B9B9B)) // cinza claro
+                .background(Color(0xFF9B9B9B))
                 .padding(vertical = 10.dp)
                 .fillMaxWidth(),
             contentAlignment = Alignment.CenterStart
@@ -58,7 +59,7 @@ fun MinecraftTextField(
                         blurRadius = 0f
                     )
                 ),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
                 singleLine = true,
                 decorationBox = { innerTextField ->
                     if (value.isEmpty()) {
@@ -78,3 +79,4 @@ fun MinecraftTextField(
         }
     }
 }
+
